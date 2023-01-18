@@ -1,0 +1,12 @@
+.App .copy{
+    font-size: 0.8rem;
+    font-style: italic;
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.App .copy > span {
+    font-weight: bold;
+}

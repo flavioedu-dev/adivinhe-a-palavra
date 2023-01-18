@@ -145,6 +145,8 @@ function App() {
           inputRef={inputRef}
         />}
       {gameStage === stages[2].name && <GameOver resetGame={resetGame} score={score}/>}
+
+      <p className='copy'>Created by <span>&copy;xFlax00</span></p>
     </div>
   );
 }

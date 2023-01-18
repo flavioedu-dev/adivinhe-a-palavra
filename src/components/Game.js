@@ -43,7 +43,6 @@ const Game = ({ trying, category, letters, guessedLetters, wrongLetters, attempt
                 
                 <div className='wrong-letters'>
                     <p>Letras já utilizadas:</p>
-                    <span></span>
                     {wrongLetters && wrongLetters.map((l, i) => (
                         <span key={i}>{l}, </span>
                     ))}
