@@ -4,17 +4,17 @@ import './Game.css';
 // Hooks
 import { useState } from 'react';
 
-const Game = ({ trying, category, letters, guessedLetters, wrongLetters, inputRef }) => {
+const Game = ({ trying, category, letters, guessedLetters, wrongLetters, attempts, score, inputRef }) => {
 
     const [letter, setLetter] = useState("")
 
     return (
         <div>
             <div className='box-tips'>
-                <p>Pontuação: <span>000</span></p>
+                <p>Pontuação: <span>{score}</span></p>
                 <h1>Adivinhe a palavra</h1>
                 <h3>Dica: <span>{category}</span></h3>
-                <p>Você ainda tem <span>N</span> tentativa(s).</p>
+                <p>Você ainda tem <span>{attempts}</span> tentativa(s).</p>
             </div>
             <div className='letters-container'>
                 {letters && letters.map((l, i) => (
@@ -37,6 +37,7 @@ const Game = ({ trying, category, letters, guessedLetters, wrongLetters, inputRe
                 
                 <div className='wrong-letters'>
                     <p>Letras já utilizadas:</p>
+                    <span></span>
                     {wrongLetters && wrongLetters.map((l, i) => (
                         <span key={i}>{l}, </span>
                     ))}

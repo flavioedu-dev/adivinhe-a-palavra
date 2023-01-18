@@ -5,27 +5,41 @@ import './App.css';
 import { wordsList } from './data/words'
 
 // Hooks
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 // Components
 import Start from './components/Start'
 import Game from './components/Game'
 import GameOver from './components/GameOver'
 
+// Game stages
+const stages = [
+  {id: 0, name: 'start'},
+  {id: 1, name: 'game'},
+  {id: 2, name: 'end'},
+]
+
 function App() {
+  const chances = 3
+
+  
 
   const [gameStage, setGameStage] = useState("start")
+  const [words] = useState(wordsList)
+  
   const [pickedCategory, setPickedCategory] = useState("")
-  //const [pickedWord, setPickedWord] = useState("")
   const [letters, setLetters] = useState([])
 
   const [guessedLetters, setGuessedLetters] = useState([])
   const [wrongLetters, setWrongLetters] = useState([])
 
+  const [attempts, setAttempts] = useState(chances)
+  const [score, setScore] = useState(0)
+
   const inputRef = useRef(null)
 
   // Picking category and word
-  const categoryAndWord = () => {
+  const categoryAndWord = useCallback(() => {
     const categories = Object.keys(wordsList)
     const category = categories[Math.floor(Math.random() * categories.length)]
 
@@ -36,25 +50,26 @@ function App() {
     console.log(word) */
 
     return [category, word]
-  }
+  }, [words])
 
   categoryAndWord()
 
   // Starting game
-  const startGame = () => {
+  const startGame = useCallback(() => {
+
+    clearStates()
 
     const [ category, word ] = categoryAndWord()
 
     console.log(word)
 
     const letters = word.split("").map((letter) => letter.toLowerCase())
-
     console.log(letters)
 
     setPickedCategory(category)
     setLetters(letters)
     setGameStage(stages[1].name)
-  }
+  }, [categoryAndWord])
 
   // Trying to hit the letters
   const trying = (letter) => {
@@ -68,6 +83,8 @@ function App() {
       setGuessedLetters((prevGuessedLetters) => [...prevGuessedLetters, letter])
     }else{
       setWrongLetters((prevWrongLetters) => [...prevWrongLetters, letter])
+
+      setAttempts(prevAttempts => prevAttempts - 1)
     }
 
     inputRef.current.focus()
@@ -77,17 +94,42 @@ function App() {
   console.log(guessedLetters)
   console.log(wrongLetters)
 
+  // Clearing states for reset the game
+  const clearStates = () => {
+    setAttempts(chances)
+    setGuessedLetters([])
+    setWrongLetters([])
+  }
+
+  // Defeat condition
+  useEffect(() => {
+    if(attempts <= 0){
+      clearStates()
+
+      setGameStage(stages[2].name)
+    }
+  },[attempts])
+
+  // Win condition
+  useEffect(() => {
+
+    const uniqueLetters = [...new Set(letters)]
+
+    if(guessedLetters.length === uniqueLetters.length && gameStage === 'game'){
+      setScore((prevScore) => prevScore += 100)
+
+      startGame()
+    }
+  },[guessedLetters, gameStage, startGame, letters])
+
   // Reset game
   const resetGame = () => {
+    setScore(0)
+
     setGameStage(stages[0].name)
   }
 
-  // Game stages
-  const stages = [
-    {id: 0, name: 'start'},
-    {id: 1, name: 'game'},
-    {id: 2, name: 'end'},
-  ]
+  
   return (
     <div className="App">
       {gameStage === stages[0].name && <Start startGame={startGame} />}
@@ -98,9 +140,11 @@ function App() {
           letters={letters}
           guessedLetters={guessedLetters}
           wrongLetters={wrongLetters}
+          attempts={attempts}
+          score={score}
           inputRef={inputRef}
         />}
-      {gameStage === stages[2].name && <GameOver resetGame={resetGame} />}
+      {gameStage === stages[2].name && <GameOver resetGame={resetGame} score={score}/>}
     </div>
   );
 }
