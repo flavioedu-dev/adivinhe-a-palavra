@@ -8,6 +8,12 @@ const Game = ({ trying, category, letters, guessedLetters, wrongLetters, attempt
 
     const [letter, setLetter] = useState("")
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        setLetter("")
+    }
+
     return (
         <div>
             <div className='box-tips'>
@@ -30,10 +36,10 @@ const Game = ({ trying, category, letters, guessedLetters, wrongLetters, attempt
             <div className='input-letter'>
                 <p>Qual letra você deseja tentar?</p>
 
-                <div className='input-container'>
+                <form className='input-container' onSubmit={handleSubmit}>
                     <input type='text' className='box-letter' maxLength={1} value={letter} onChange={(e) => setLetter(e.target.value)} required ref={inputRef}/>
                     <button onClick={(e) => trying(letter)}>Tentar</button>
-                </div>
+                </form>
                 
                 <div className='wrong-letters'>
                     <p>Letras já utilizadas:</p>

@@ -40,10 +40,10 @@ function App() {
 
   // Picking category and word
   const categoryAndWord = useCallback(() => {
-    const categories = Object.keys(wordsList)
+    const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * categories.length)]
 
-    const word = wordsList[category][Math.floor(Math.random() * wordsList[category].length)]
+    const word = words[category][Math.floor(Math.random() * words[category].length)]
 
     /* console.log(categories)
     console.log(category)
@@ -74,8 +74,8 @@ function App() {
   // Trying to hit the letters
   const trying = (letter) => {
 
-    console.log(letter)
-    if(guessedLetters.includes(letter) || wrongLetters.includes(letter) || letter === ""){
+    console.log(letter.length)
+    if(guessedLetters.includes(letter) || wrongLetters.includes(letter) || letter === "" || letter === " "){
       return
     }
 

@@ -71,6 +71,7 @@
 
 .wrong-letters{
     padding-top: 1rem;
+    height: 50px;
 }
 
 .wrong-letters span{
