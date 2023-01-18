@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: 'Helvetica';
+  height: 100%;
+  background: linear-gradient(rgb(135, 15, 172), rgb(0, 0, 0, 0.979));
+  color: #fff;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+}
+
+.btn{
+  margin-top: 2rem;
+  padding: 2rem 6rem;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  background-color: purple;
+  color: #fff;
+  cursor: pointer;
+  transition: .5s;
+}
+.btn{
+  background-color: rgba(128, 0, 128, 0.74);
+  color: #ecfa00;
+}

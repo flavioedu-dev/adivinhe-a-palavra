@@ -1,0 +1,78 @@
+.box-tips span{
+    font-weight: bold;
+    color: #ecfa00;
+}
+
+.box-tips p{
+    font-size: 1.2rem;
+}
+
+.box-tips{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.letters-container{
+    border: 20px solid #ecfa00;
+    padding: 1.5rem;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.letters-container span{
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight: bold;
+    border: 2px solid #000;
+}
+
+.input-letter p{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.box-letter{
+    width: 70px;
+    height: 70px;
+    margin-right: 1rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-letter button{
+    padding: 1rem 3rem;
+    border-radius: 40px;
+    font-size: 1.5rem;
+    background-color: purple;
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+}
+.input-letter button:hover{
+    background-color: rgba(128, 0, 128, 0.74);
+    color: #ecfa00;
+}
+
+.wrong-letters{
+    padding-top: 1rem;
+}
+
+.wrong-letters span{
+    font-size: 1.5rem;
+}

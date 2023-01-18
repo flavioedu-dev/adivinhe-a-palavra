@@ -1,0 +1,8 @@
+.GameOver h1{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.GameOver h2 > span{
+    color: #ecfa00;
+}
