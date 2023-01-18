@@ -4,11 +4,11 @@
 ## Sobre o projeto
 Jogo desenvolvido com a biblioteca ReactJS, no qual foram aplicados conceitos de mudança de estados, renderização condicional, props, utilização de formulários e o uso dos principais hooks do React.
 
-<img src="./src/assets/StartScreen.png" alt="Start">
+<img src="./src/assets/StartScreen.PNG" alt="Start">
 
-<img src="./src/assets/GameScreen.png" alt="Game">
+<img src="./src/assets/GameScreen.PNG" alt="Game">
 
-<img src="./src/assets/GameOverScreen.png" alt="GameOver">
+<img src="./src/assets/GameOverScreen.PNG" alt="GameOver">
 
 ## Instruções
 
