@@ -33,3 +33,9 @@ body{
   background-color: rgba(128, 0, 128, 0.74);
   color: #ecfa00;
 }
+
+@media screen and (max-width: 500px){
+  .btn{
+    font-size: 1.2rem;
+  }
+}

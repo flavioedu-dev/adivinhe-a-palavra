@@ -81,3 +81,50 @@
 .wrong-letters span{
     font-size: 1.5rem;
 }
+
+
+
+@media screen and (max-width: 900px){
+    .letters-container{
+        border: 10px solid #ecfa00;
+        padding: .5rem;
+    }
+    .letters-container span{
+        width: 70px;
+        height: 70px;
+        font-size: 3.5rem;
+    }
+
+    .input-letter button{
+        font-size: 1.3rem;
+    }
+
+    .box-letter{
+        width: 60px;
+        height: 60px;
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .letters-container{
+        border: 10px solid #ecfa00;
+        padding: .5rem;
+    }
+    .letters-container span{
+        width: 45px;
+        height: 45px;
+        font-size: 2.2rem;
+    }
+
+    .input-letter button{
+        font-size: 1.2rem;
+    }
+
+    .box-letter{
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
+    }
+    
+}
