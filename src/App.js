@@ -24,7 +24,7 @@ function App() {
 
   
 
-  const [gameStage, setGameStage] = useState("end")
+  const [gameStage, setGameStage] = useState("start")
   const [words] = useState(wordsList)
   
   const [pickedCategory, setPickedCategory] = useState("")
