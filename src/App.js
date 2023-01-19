@@ -64,7 +64,9 @@ function App() {
   }, [categoryAndWord])
 
   // Trying to hit the letters
-  const trying = (letter) => {
+  const trying = (letterInput) => {
+
+    const letter = letterInput.toLowerCase()
 
     if(guessedLetters.includes(letter) || wrongLetters.includes(letter) || letter === "" || letter === " "){
       return
@@ -107,7 +109,7 @@ function App() {
 
       setTimeout(() => {
         startGame()
-      }, 400)
+      }, 300)
       
     }
   },[guessedLetters, gameStage, startGame, letters])
