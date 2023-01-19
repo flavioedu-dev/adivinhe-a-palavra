@@ -24,7 +24,7 @@ function App() {
 
   
 
-  const [gameStage, setGameStage] = useState("start")
+  const [gameStage, setGameStage] = useState("end")
   const [words] = useState(wordsList)
   
   const [pickedCategory, setPickedCategory] = useState("")
@@ -42,12 +42,7 @@ function App() {
   const categoryAndWord = useCallback(() => {
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * categories.length)]
-
     const word = words[category][Math.floor(Math.random() * words[category].length)]
-
-    /* console.log(categories)
-    console.log(category)
-    console.log(word) */
 
     return [category, word]
   }, [words])
@@ -61,10 +56,7 @@ function App() {
 
     const [ category, word ] = categoryAndWord()
 
-    console.log(word)
-
     const letters = word.split("").map((letter) => letter.toLowerCase())
-    console.log(letters)
 
     setPickedCategory(category)
     setLetters(letters)
@@ -74,7 +66,6 @@ function App() {
   // Trying to hit the letters
   const trying = (letter) => {
 
-    console.log(letter.length)
     if(guessedLetters.includes(letter) || wrongLetters.includes(letter) || letter === "" || letter === " "){
       return
     }
@@ -88,11 +79,7 @@ function App() {
     }
 
     inputRef.current.focus()
-    //setGameStage(stages[2].name)
   }
-
-  console.log(guessedLetters)
-  console.log(wrongLetters)
 
   // Clearing states for reset the game
   const clearStates = () => {
@@ -118,7 +105,10 @@ function App() {
     if(guessedLetters.length === uniqueLetters.length && gameStage === 'game'){
       setScore((prevScore) => prevScore += 100)
 
-      startGame()
+      setTimeout(() => {
+        startGame()
+      }, 400)
+      
     }
   },[guessedLetters, gameStage, startGame, letters])
 

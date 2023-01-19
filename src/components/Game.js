@@ -17,7 +17,7 @@ const Game = ({ trying, category, letters, guessedLetters, wrongLetters, attempt
     return (
         <div>
             <div className='box-tips'>
-                <p>Pontuação: <span>{score}</span></p>
+                <p><b>Pontuação:</b> <span>{score}</span></p>
                 <h1>Adivinhe a palavra</h1>
                 <h3>Dica: <span>{category}</span></h3>
                 <p>Você ainda tem <span>{attempts}</span> tentativa(s).</p>

@@ -1,8 +1,19 @@
 .GameOver h1{
     font-size: 4rem;
     margin-bottom: 1rem;
+    animation: spinning .45s alternate infinite;
 }
 
 .GameOver h2 > span{
     color: #ecfa00;
+}
+
+@keyframes spinning{
+    0%{
+        transform: translateY(0px);
+        color: #ecfa00;
+    }
+    100%{
+        transform: translateY(-20px);
+    }
 }

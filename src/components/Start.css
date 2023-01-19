@@ -5,4 +5,18 @@
     font-size: 3.5rem;
     margin-bottom: 1rem;
     border-bottom: 2px dashed black;
+    animation: anima .5s alternate-reverse infinite;
+}
+
+.Start h3{
+    animation: anima .5s alternate-reverse infinite;
+}
+
+@keyframes anima {
+    0%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
 }
